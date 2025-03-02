@@ -1,0 +1,6 @@
+pyttsx3 
+SpeechRecognition 
+wikipedia 
+pyaudio
+# webbrowser --> its a built-in module so no need to install it using pip
+# smtplib
