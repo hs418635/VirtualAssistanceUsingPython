@@ -51,7 +51,7 @@ class SpeechModule:
             print("Say that again please...")
             return "None"
 
-
+# Adding the main code to test the SpeechModule class.
 if __name__ == "__main__":
     speech_module = SpeechModule()
     speech_module.wish_me()
