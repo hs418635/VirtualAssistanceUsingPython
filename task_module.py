@@ -26,6 +26,26 @@ class TaskModule:
     def open_website(self, site):
         webbrowser.open(site)
 
+    # Open Code: It opens a code editor or file.
+    def open_code(self, path):
+        os.startfile(path)
+    
+    # Tell Time: It tells the current time.
+    def tell_time(self):
+        from datetime import datetime
+        str_time = datetime.now().strftime("%H:%M:%S")
+        self.speech_module.speak(f"Sir, the time is {str_time}")
+
+    # Search Wikipedia: It searches for a query on Wikipedia and speaks a summary.
+    def search_wikipedia(self, query):
+        try:
+            results = wikipedia.summary(query, sentences=2)
+            self.speech_module.speak("According to Wikipedia, " + results)
+            print(results)
+        except Exception as e:
+            print(e)
+            self.speech_module.speak("Sorry, I could not fetch results from Wikipedia.")
+
     def play_music(self, music_dir):
         if os.path.exists(music_dir):
             songs = [file for file in os.listdir(music_dir) if file.endswith(('.mp3', '.wav'))]
@@ -36,16 +56,6 @@ class TaskModule:
                 print("No music files found in the directory.")
         else:
             print("Music directory does not exist.")
-
-    # Tell Time: It tells the current time.
-    def tell_time(self):
-        from datetime import datetime
-        str_time = datetime.now().strftime("%H:%M:%S")
-        self.speech_module.speak(f"Sir, the time is {str_time}")
-
-    # Open Code: It opens a code editor or file.
-    def open_code(self, path):
-        os.startfile(path)
 
     # Send Email: It sends an email using the smtplib library.
     def send_email(self, to, content):
