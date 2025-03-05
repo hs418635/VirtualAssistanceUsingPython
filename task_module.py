@@ -70,3 +70,39 @@ class TaskModule:
         except Exception as e:
             print(e)
             self.speech_module.speak("Sorry, I am not able to send this email.")
+
+
+if __name__ == "__main__":
+    # Create a dummy speech module for testing purposes.
+    class DummySpeechModule:
+        def speak(self, text):
+            print("Speak:", text)
+    
+    dummy_speech = DummySpeechModule()
+    task = TaskModule(dummy_speech)
+    
+    # Test open_website (Be cautious: this will open a browser window)
+    # print("Testing open_website:")
+    # task.open_website("https://www.google.com")
+    
+    # Test open_code (Be cautious: this will attempt to open a file)
+    # print("Testing open_code:")
+    # task.open_code("D:\\Python_Class\\mycalci.py")
+    
+    # # Test tell_time
+    # print("Testing tell_time:")
+    # task.tell_time()
+    
+    # # Test search_wikipedia
+    print("Testing search_wikipedia:")
+    # task.search_wikipedia("Python programming")
+    task.search_wikipedia("Virat Kohli")
+    
+    # Test play_music (Ensure the path exists and has valid music files)
+    # print("Testing play_music:")
+    # task.play_music("D:\\M.TECH DATA SCIENCE\\My project\\Ai assistance\\AiAssistancePython")
+    
+    # Test send_email (Make sure your .env is set up correctly and be careful sending emails)
+    print("Testing send_email:")
+    # task.send_email("example@example.com", "This is a test email.")
+

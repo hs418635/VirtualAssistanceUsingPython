@@ -50,3 +50,9 @@ class SpeechModule:
         except Exception:
             print("Say that again please...")
             return "None"
+
+
+if __name__ == "__main__":
+    speech_module = SpeechModule()
+    speech_module.wish_me()
+    speech_module.take_command()
